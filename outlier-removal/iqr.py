@@ -2,6 +2,7 @@ import pandas as pd
 import random
 import matplotlib.pyplot as plt
 
+
 # Function to replace outliers with the mean of non-outlier values
 def replace_outliers_with_mean(column):
     Q1 = column.quantile(0.25)
@@ -73,22 +74,24 @@ def plot_boxplots_before_after(original_data, imputed_data):
     # Save the figure
     plt.savefig(f'figures/boxplot_{selected_column}_before_after_imputation.png')
 
+
 def main():
     # Load the dataset
     data = pd.read_csv('datasets/GSE73721_Human_and_mouse_table.csv')
     
-    # # Apply the function to each column (excluding the 'Gene' column)
-    # data_imputed = data.copy()
-    # data_imputed.iloc[:, 1:] = data_imputed.iloc[:, 1:].apply(replace_outliers_with_mean)
+    # Apply the function to each column (excluding the 'Gene' column)
+    data_imputed = data.copy()
+    data_imputed.iloc[:, 1:] = data_imputed.iloc[:, 1:].apply(replace_outliers_with_mean)
 
-    # # Save the imputed dataset
-    # data_imputed.to_csv('datasets/GSE73721_Human_and_mouse_table_imputed.csv', index=False)
+    # Save the imputed dataset
+    data_imputed.to_csv('datasets/GSE73721_Human_and_mouse_table_imputed.csv', index=False)
     
     # Load the imputed dataset
     data_imputed = pd.read_csv('datasets/GSE73721_Human_and_mouse_table_imputed.csv')
     
     # Plot boxplots for a randomly selected column with outliers, showing data before and after outlier imputation
     plot_boxplots_before_after(data, data_imputed)
+
 
 if __name__ == "__main__":
     main()
