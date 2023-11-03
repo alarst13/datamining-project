@@ -36,7 +36,7 @@
 
 - **Method**: Utilized the Modified Z-Score to detect outliers. The formula for the Modified Z-Score is:
    $$M_i = 0.6745 \times \frac{(X_i - \text{Med})}{\text{MAD}}$$
-  where $ X_i $ is the data point, $ \text{Med} $ is the median of the data, and $ \text{MAD} $ is the Median Absolute Deviation.
+  where $X_i$ is the data point, $\text{Med}$ is the median of the data, and $\text{MAD}$ is the Median Absolute Deviation.
 
 - **Strategy**: Imputed outliers, identified as those with a Modified Z-Score greater than 3.5, with the mean of non-outlier values.
 
