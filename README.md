@@ -30,7 +30,6 @@
 - **Considerations**: While effective in handling extreme values, it's essential to recognize the method's impact on data distribution. Alternatives or additional analyses might be necessary, especially when considering the biological significance of detected outliers.
 
 - **Visualization**: Below is a boxplot showcasing the distribution of a randomly selected gene column before and after outlier imputation using the IQR method.
-
 ![Boxplot Before and After Imputation](./figures/boxplot_Fetal%20ctx%203%20astro_before_after_imputation.png)
 
 #### 3.2 Modified Z-Score Method:
@@ -46,6 +45,7 @@
    - **Data Distribution**: Post-imputation visualizations show a more natural spread of data values, unlike the concentration around the mean observed with the IQR method.
 - **Considerations**: While this method was effective in detecting and handling outliers, it's crucial to exercise caution. Given the sensitivity of the Modified Z-Score method, there's a risk of misclassifying genuine extreme values as outliers. It's essential to ensure that we are not discarding biologically significant variations.
 - **Visualization**: Below is a boxplot showcasing the distribution of a randomly selected gene column before and after outlier imputation using the Modified Z-Score method.
+
 ![Boxplot Before and After Imputation](./figures/boxplot_45yo%20whole%20cortex_before_after_imputation_modified_zscore.png)
 
 For the remainder of the project, we will utilize the IQR method for outlier handling.
