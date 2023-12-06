@@ -77,20 +77,20 @@ def plot_boxplots_before_after(original_data, imputed_data):
 
 def main():
     # Load the dataset
-    data = pd.read_csv('datasets/GSE73721_Human_and_mouse_table.csv')
+    data = pd.read_csv('datasets/GSE142209/Human-Counts.csv')
     
     # Apply the function to each column (excluding the 'Gene' column)
     data_imputed = data.copy()
     data_imputed.iloc[:, 1:] = data_imputed.iloc[:, 1:].apply(replace_outliers_with_mean)
 
     # Save the imputed dataset
-    data_imputed.to_csv('datasets/GSE73721_Human_and_mouse_table_imputed.csv', index=False)
+    data_imputed.to_csv('datasets/GSE142209/Human-Counts-imputed.csv', index=False)
     
-    # Load the imputed dataset
-    data_imputed = pd.read_csv('datasets/GSE73721_Human_and_mouse_table_imputed.csv')
+    # # Load the imputed dataset
+    # data_imputed = pd.read_csv('datasets/GSE73721_Human_and_mouse_table_imputed.csv')
     
-    # Plot boxplots for a randomly selected column with outliers, showing data before and after outlier imputation
-    plot_boxplots_before_after(data, data_imputed)
+    # # Plot boxplots for a randomly selected column with outliers, showing data before and after outlier imputation
+    # plot_boxplots_before_after(data, data_imputed)
 
 
 if __name__ == "__main__":
